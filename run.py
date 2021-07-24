@@ -54,12 +54,11 @@ def create():
 def run():
     for index, row in df.iterrows():
         print(row['job'], row['a'], row['b'], row['c'])
-        command = 'sh exec/' + str(row['job']) +  '/solve.sh'  + ' exec/' + str(row['job']) + ' '  + str(row['a']) + ' ' + str(row['b']) + ' ' + str(row['c'])  + ' && tree'
+        #command = 'sbatch -n1 sh exec/' + str(row['job']) +  '/solve.sh'  + ' exec/' + str(row['job']) + ' '  + str(row['a']) + ' ' + str(row['b']) + ' ' + str(row['c']) +  ' &'
         print(command)
         os.system(command)
 
 #main
-
 data = 'tarefas.csv'
 df   = pd.read_csv(data, encoding="utf-8", sep=",")
 source = 'app/'
