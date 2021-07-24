@@ -54,9 +54,9 @@ def create():
 def run():
     for index, row in df.iterrows():
         print(row['job'], row['a'], row['b'], row['c'])
-        command = 'sbatch -n1 sh exec/' + str(row['job']) +  '/solve.sh'  + ' exec/' + str(row['job']) + ' '  + str(row['a']) + ' ' + str(row['b']) + ' ' + str(row['c']) +  ' &'
+        command = 'sbatch -n1 exec/' + str(row['job']) +  '/solve.sh'  + ' exec/' + str(row['job']) + ' '  + str(row['a']) + ' ' + str(row['b']) + ' ' + str(row['c']) +  ' &'
         print(command)
-        #os.system(command)
+        os.system(command)
 
 #main
 data = 'tarefas.csv'
